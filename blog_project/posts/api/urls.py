@@ -5,7 +5,8 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
-router.register(r"groups", views.GroupViewSet)
+# router.register(r"groups", views.GroupViewSet)
+router.register(r"posts", views.PostViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),

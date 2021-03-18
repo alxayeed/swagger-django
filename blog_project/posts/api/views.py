@@ -1,7 +1,17 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from .serializers import UserSerializer, GroupSerializer
+from .serializers import UserSerializer, GroupSerializer, PostSerializer
+from posts.models import Post
+
+
+class PostViewSet(viewsets.ModelViewSet):
+    """
+    API endpoints that allow posts to be viewd or edited
+    """
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class UserViewSet(viewsets.ModelViewSet):
